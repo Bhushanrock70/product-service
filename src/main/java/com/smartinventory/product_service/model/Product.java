@@ -1,10 +1,7 @@
 package com.smartinventory.product_service.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,9 +19,13 @@ public class Product {
     @Id
     @GeneratedValue
     private Long id;
+
+    @Column(unique = true)
+    private String productCode;
+
     private String name;
     private String description;
-    private double price;
+    private Double price;
     private int quantity;
 
 
